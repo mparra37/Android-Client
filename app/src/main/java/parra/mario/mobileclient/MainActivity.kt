@@ -2,6 +2,7 @@ package parra.mario.mobileclient
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.StrictMode
 import android.view.View
 import android.widget.EditText
 import parra.mario.mobileclient.databinding.ActivityMainBinding
@@ -10,12 +11,15 @@ import java.net.Socket
 
 
 class MainActivity : AppCompatActivity() {
-    lateinit var et_message: EditText
+    val et_message: EditText = findViewById(R.id.et_msg)
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
+
 
 
 
@@ -25,7 +29,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    class MyThread : Runnable{
+    private class MyThread : Runnable{
         var msg: String = ""
         lateinit var socket: Socket
         lateinit var dos: DataOutputStream
@@ -38,6 +42,7 @@ class MainActivity : AppCompatActivity() {
             dos.flush()
             socket.close()
 
+
         }
 
         fun sendMsg(msg: String){
@@ -45,8 +50,10 @@ class MainActivity : AppCompatActivity() {
             run()
         }
 
-        fun btnClickSend(v: View){
 
-        }
+    }
+
+    fun btnClickSend(v: View){
+
     }
 }
