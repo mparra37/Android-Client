@@ -47,11 +47,11 @@ public class MainActivity2 extends AppCompatActivity {
         public void run(){
             try {
                 socket = new Socket("158.97.91.129", 5678);
-                showToast("llego 1");
+                //showToast("llego 1");
                 //out = new PrintWriter(socket.getOutputStream(), true);
                 dos = new DataOutputStream(socket.getOutputStream());
                 dos.writeUTF(msg);
-                showToast("llego 2");
+                //showToast("llego 2");
                 dos.close();
                 dos.flush();
                 socket.close();
